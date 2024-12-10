@@ -4,7 +4,7 @@
 html {
   overflow-y: scroll;
 
-  --game-spacing: 32px;
+  --game-spacing: 12px;
   --header-height: 4rem;
 
   --color-success: hsl(150deg 70% 30%);
@@ -15,6 +15,7 @@ html {
   --color-gray-500: hsl(0deg 0% 50%);
   --color-gray-700: hsl(0deg 0% 75%);
   --color-gray-900: hsl(0deg 0% 90%);
+  --color-gray-custom: hsla(0, 3%, 86%, 0.87);
 }
 
 /*
@@ -229,4 +230,51 @@ h1 {
   to {
     transform: translateY(0%);
   }
+}
+
+/* .keyboardcell {
+  border: 1px solid hsl(210deg 12% 70%);
+  border-radius: 1px;
+  aspect-ratio: 1;
+  width: 10%;
+  margin: 1px;
+} */
+
+.keyboard {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 2px;
+  justify-content: center;
+}
+
+.keyboardcell {
+  position: relative;
+  width: 8%;
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--color-gray-700);
+  border-radius: var(--radius);
+  font-size: 2rem;
+}
+
+.keyboardcell.correct {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+.keyboardcell.incorrect {
+  background: var(--color-gray-300);
+  border-color: var(--color-gray-300);
+  color: white;
+}
+.keyboardcell.misplaced {
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
+}
+.keyboardcell.valid {
+  background: var(--color-gray-custom);
+  border-color: var(--color-gray-custom);
+  color: black;
 }

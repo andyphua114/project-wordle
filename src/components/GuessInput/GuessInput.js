@@ -1,6 +1,7 @@
 import React from "react";
 
 import Banner from "../Banner";
+import Keyboard from "../Keyboard";
 
 function GuessInput({ guessLog, setGuessLog, answer }) {
   const [guess, setGuess] = React.useState("");
@@ -47,6 +48,7 @@ function GuessInput({ guessLog, setGuessLog, answer }) {
           }}
         />
       </form>
+      <Keyboard answer={answer} guessLog={guessLog} />
       {status !== "running" && (
         <Banner
           status={status}
