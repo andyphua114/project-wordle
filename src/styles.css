@@ -278,3 +278,20 @@ h1 {
   border-color: var(--color-gray-custom);
   color: black;
 }
+
+
+.restart-button {
+  width: fit-content;
+  background-color: #b21e35; /* Red pastel color */
+  color: white; /* Text color */
+  border: 2px solid #555555; /* Dark gray border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for better spacing */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.restart-button:hover {
+  background-color: #ff867a; /* Slightly lighter red on hover */
+  color: black
+}

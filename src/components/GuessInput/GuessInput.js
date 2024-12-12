@@ -2,8 +2,9 @@ import React from "react";
 
 import Banner from "../Banner";
 import Keyboard from "../Keyboard";
+import RestartGame from "../RestartGame";
 
-function GuessInput({ guessLog, setGuessLog, answer }) {
+function GuessInput({ guessLog, setGuessLog, answer, setAnswer }) {
   const [guess, setGuess] = React.useState("");
   const [status, setStatus] = React.useState("running");
 
@@ -25,7 +26,7 @@ function GuessInput({ guessLog, setGuessLog, answer }) {
       const newStatus = answer === newGuess.value ? "won" : "running";
       setStatus(newStatus);
       console.log(newStatus);
-    } else if (newGuessLog.length == 6) {
+    } else if (newGuessLog.length === 6) {
       const newStatus = answer === newGuess.value ? "won" : "lost";
       setStatus(newStatus);
       console.log(newStatus);
@@ -38,6 +39,14 @@ function GuessInput({ guessLog, setGuessLog, answer }) {
 
   return (
     <>
+      {status !== "running" && (
+        <RestartGame
+          setAnswer={setAnswer}
+          setGuessLog={setGuessLog}
+          setStatus={setStatus}
+        />
+      )}
+
       <form className="guess-input-wrapper" onSubmit={handleSubmit}>
         <label htmlFor="guess-input">Enter guess:</label>
         <input
@@ -52,6 +61,7 @@ function GuessInput({ guessLog, setGuessLog, answer }) {
           }}
         />
       </form>
+
       <Keyboard answer={answer} guessLog={guessLog} />
       {status !== "running" && (
         <Banner
