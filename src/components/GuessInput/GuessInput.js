@@ -25,6 +25,10 @@ function GuessInput({ guessLog, setGuessLog, answer }) {
       const newStatus = answer === newGuess.value ? "won" : "running";
       setStatus(newStatus);
       console.log(newStatus);
+    } else if (newGuessLog.length == 6) {
+      const newStatus = answer === newGuess.value ? "won" : "lost";
+      setStatus(newStatus);
+      console.log(newStatus);
     } else {
       const newStatus = "lost";
       setStatus(newStatus);
